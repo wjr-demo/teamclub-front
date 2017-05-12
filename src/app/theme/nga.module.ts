@@ -53,6 +53,7 @@ import {
   EmailValidator,
   EqualPasswordsValidator
 } from './validators';
+import { OwnMdSnackBar } from './snack-bar/snack-bar';
 
 const NGA_COMPONENTS = [
   BaBackTop,
@@ -121,6 +122,7 @@ export class NgaModule {
       providers: [
         BaThemeConfigProvider,
         BaThemeConfig,
+        OwnMdSnackBar,
         ...NGA_VALIDATORS,
         ...NGA_SERVICES
       ],

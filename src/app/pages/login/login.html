@@ -4,18 +4,19 @@
     <a routerLink="/register" class="auth-link">新用户? 注册!</a>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
-      <div class="form-group row" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
-        <label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
-
+      <div class="form-group row" [ngClass]="{'has-error': (!userName.valid && userName.touched), 'has-success': (userName.valid && userName.touched)}">
+        <label for="inputEmail3" class="col-sm-2 control-label">帐号</label>
         <div class="col-sm-10">
-          <input [formControl]="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          <input [formControl]="userName" type="email" class="form-control" id="inputEmail3" placeholder="帐号">
+          <p *ngIf="!userName.valid && userName.touched">无效的帐号</p>
         </div>
       </div>
-      <div class="form-group row" [ngClass]="{'has-error': (!password.valid && password.touched), 'has-success': (password.valid && password.touched)}">
+      <div class="form-group row" [ngClass]="{'has-error': (!userPassword.valid && userPassword.touched), 'has-success': (userPassword.valid && userPassword.touched)}">
         <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
 
         <div class="col-sm-10">
-          <input [formControl]="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          <input [formControl]="userPassword" type="password" class="form-control" id="inputPassword3" placeholder="密码">
+          <p *ngIf="!userPassword.valid && userPassword.touched">最小长度为4</p>
         </div>
       </div>
       <div class="form-group row">

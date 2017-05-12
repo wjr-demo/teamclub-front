@@ -15,6 +15,7 @@ import 'style-loader!./theme/initial.scss';
 @Component({
   selector: 'app',
   template: `
+    <simple-notifications [options]="notificationsOptions"></simple-notifications>
     <main [ngClass]="{'menu-collapsed': isMenuCollapsed}" baThemeRun>
       <div class="additional-bg"></div>
       <router-outlet></router-outlet>
@@ -39,6 +40,21 @@ export class App {
       this.isMenuCollapsed = isCollapsed;
     });
   }
+  // 通知配置
+  public notificationsOptions = {
+    position: ['top', 'left'],
+    timeOut: 3000,
+    lastOnBottom: true,
+    clickToClose: true,
+    maxLength: 0,
+    maxStack: 5,
+    showProgressBar: false,
+    pauseOnHover: true,
+    preventDuplicates: false,
+    preventLastDuplicates: false,
+    positionClass : "toast-top-center"
+  };
+
 
   public ngAfterViewInit(): void {
     // hide spinner once all loaders are completed
